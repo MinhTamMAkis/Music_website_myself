@@ -23,19 +23,19 @@ const musics = [
         id:1,
         title: "焔は嗤う",
         file: "焔は嗤う.mp3",
-        image:  "../css/imgas/2.jpg"
+        image:  "../imgas/2.jpg"
     },
     {
         id:2,
         title: "idol-kanata",
         file: "idol-kanata.mp3",
-        image:  "../css/imgas/1.webp"
+        image:  "../imgas/1.webp"
     },
     {
         id:3,
         title: "Speak-Out",
         file: "Speak-Out.mp3",
-        image:  "../css/imgas/3.jpg"
+        image:  "../imgas/3.jpg"
     }
 ]
 
@@ -190,7 +190,7 @@ function handleChangeBar(){
 function init (indexSong){
     
     song.setAttribute("src",`./music/${musics[indexSong].file}`);
-    musicImage.setAttribute("src", musics[indexSong].image);
+    musicImage.setAttribute("src",musics[indexSong].image);
     musicName.textContent = musics[indexSong].title;
     
 }

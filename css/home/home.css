@@ -18,7 +18,7 @@
     width: 105%;
     height: 100%;
     filter: grayscale(70%);
-    background-image: url('../imgas/forest.png');
+    background-image: url('../img/forest.png');
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover;
 }
