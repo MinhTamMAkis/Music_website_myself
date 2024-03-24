@@ -26,13 +26,50 @@
     .view-home {
       position: relative;
     }
+    .music-thumb.is-playing {
+      animation:  circle 10s infinite linear;
+  }
+  
+  .music-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+
     .bi-volume-up{
       background-color: aliceblue;
       border-radius: 50%;
       background-image: url('imgas/volume-up.svg');
       background-repeat: no-repeat; /* Do not repeat the image */
       background-size: cover;
+      animation:  circle 10s infinite linear;
+      opacity: 0.5;
     }
+    @keyframes circle {
+      to{
+        transform: rotate(360deg);
+    }
+  }
+  .volume {
+    background: linear-gradient(to right, #82CFD0 0%, #82CFD0 100%, #fff 100%, #fff 100%);
+    border: solid 1px #82CFD0;
+    border-radius: 8px;
+    height: 7px;
+    outline: none;
+    transition: background 450ms ease-in;
+    -webkit-appearance: none;
+  }
+  .volume::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    background-color: #20e3b2;
+    width: 15px;
+    height: 10px;
+    border-radius: 100rem;
+}
+
   </style>
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light  box-shadow mb-3">
@@ -263,44 +300,48 @@
 
                 <!-- PLAY MUSIC -->
                 <div class="body-music d-flex align-items-center text-white ">
-                  <div class="music d-flex ">
-                    <!-- IMG MUSIC -->
-                    <div class="music-thumb">
-                      <img src="css/imgas/2.jpg" alt="">
-                    </div>
-                    <!-- TITLE MUSIC -->
-                    <div class="music-title">
-                      <div class="music-name">mumei</div>
-                      <div class="music-singer">Nanashi Mumei</div>
-                    </div>
-                    <!-- CONTROL -->
-                    <audio  id="song">
-                      <source src="music/">
-                    </audio>
-                    <div class="controls d-flex align-items-center">
-                      <ion-icon name="infinite-outline" class="play-infi"></ion-icon>
-                      <ion-icon name="play-back-outline" class="play-back"></ion-icon>
-                      <div class="play">
-                          <div class="player-inner">
-                              <ion-icon name="play-outline" class="play-icon"></ion-icon>
+                  <div class="music justify-content-center">
+                    <div class="repon d-flex justify-content-center">
+                          <!-- IMG MUSIC -->
+                        <div class="music-thumb">
+                          <img src="css/imgas/2.jpg" alt="">
+                        </div>
+                        <!-- TITLE MUSIC -->
+                        <div class="music-title">
+                          <div class="music-name">mumei</div>
+                          <div class="music-singer">Nanashi Mumei</div>
+                        </div>
+                        <!-- CONTROL -->
+                        <audio  id="song">
+                          <source src="music/">
+                        </audio>
+                        <div class="controls d-flex align-items-center">
+                          <ion-icon name="infinite-outline" class="play-infi"></ion-icon>
+                          <ion-icon name="play-back-outline" class="play-back"></ion-icon>
+                          <div class="play">
+                              <div class="player-inner">
+                                  <ion-icon name="play-outline" class="play-icon"></ion-icon>
+                              </div>
                           </div>
-                      </div>
-                      <ion-icon name="play-forward-outline" class="play-next"></ion-icon>
-                      <ion-icon name="repeat-outline" class="play-repeat"></ion-icon>
+                          <ion-icon name="play-forward-outline" class="play-next"></ion-icon>
+                          <ion-icon name="repeat-outline" class="play-repeat"></ion-icon>
+                        </div>
                     </div>
-                    <!-- TIMER -->
-                    <div class="timer d-flex align-items-center">
-                      <div class="duration">00:00</div>
-                      <input type="range" name="range" id="range" class="range" min="0" max="60" value="0">
-                      <div class="remaining">00:00</div>
+                    <div class="repon d-flex justify-content-center">
+                        <!-- TIMER -->
+                        <div class="timer d-flex align-items-center">
+                          <div class="duration">00:00</div>
+                          <input type="range" name="range" id="range" class="range" min="0" max="60" value="0">
+                          <div class="remaining">00:00</div>
+                        </div>
+                        <!-- volume -->
+                        <div class=" d-flex align-items-center" style="color: white !important;">
+                          <i class="bi bi-volume-up" style="width: 20px; height: 20px;"></i>
+                          <input type="range" name="volume" id="volume" class="volume" min="0" max="10" value="10">
+                        </div>
+                    </div>
                   </div>
-                  <!-- volume -->
-                  <div class=" d-flex align-items-center" style="color: white !important;">
-                    <i class="bi bi-volume-up" style="width: 20px; height: 20px;"></i>
-                    <input type="range" name="volume" id="volume" class="volume" min="0" max="10" value="10">
-                  </div>
-                  </div>
-              </div>
+                </div>
             </div>
         </main>
     </div>
@@ -312,18 +353,8 @@
 
 <!-- MUSIC PLAY -->
 <script>
-  const rangevolume = document.getElementById('volume');
-  rangevolume.addEventListener("input",handleChangeVolume);
-  function handleChangeVolume(){
-    song.volume = rangevolume.value / 10;
-        
-  }
 
-
-  document.getElementById("range").oninput = function() {
-    var value = (this.value-this.min)/(this.max-this.min)*100
-    this.style.background = 'linear-gradient(to right, #82CFD0 0%, #82CFD0 ' + value + '%, #fff ' + value + '%, white 100%)'
-  };
+  
   
 </script>
 

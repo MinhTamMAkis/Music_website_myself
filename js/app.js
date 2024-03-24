@@ -10,6 +10,7 @@ const musicThumb = document.querySelector(".music-thumb");
 const musicImage = document.querySelector(".music-thumb img");
 const playRepeat = document.querySelector(".play-repeat")
 const playRandomBtn = document.querySelector(".play-infi")
+const rangevolume = document.getElementById('volume');
 
 
 
@@ -180,6 +181,13 @@ function formatTimer(number){
     return `${minutes < 10 ? '0' + minutes: minutes}:${seconds < 10 ? '0' + seconds:seconds}`;
 }
 
+
+// tang giam am luong
+rangevolume.addEventListener("input",handleChangeVolume);
+  function handleChangeVolume(){
+    song.volume = rangevolume.value / 10;
+        
+  }
 
 // chức năng tua nhạc 
 rangeBar.addEventListener("change",handleChangeBar);

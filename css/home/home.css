@@ -21,6 +21,7 @@
     background-image: url('../img/forest.png');
     background-repeat: no-repeat; /* Do not repeat the image */
     background-size: cover;
+    
 }
 .data-show .title{
     font-family: "Protest Guerrilla", sans-serif;
@@ -46,6 +47,9 @@
     }
     .data-show::after{
         bottom: -25px;
+    }
+    .music {
+        display: block !important;
     }
 }
 @media (max-width:568px) {
